@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Recu
 {
     class program
-    {
-        static void Main(string[] args)
+    {/* /*
+         static void Main(string[] args)
         {
             var db = new MoviesDbContext();
             ShowMenu(db);
@@ -13,6 +13,7 @@ namespace Recu
             System.Console.WriteLine("Presione cualquier tecla para salir...");
             Console.ReadLine();
         }
+        
 
         private static void Show(MoviesDbContext db)
         {
@@ -43,11 +44,11 @@ namespace Recu
             }
             else{
                 Create(db);
-            }
+            } */
 
-        }
+        
 
-        static void(){
+        static void Main(string[] args){
 
             System.Console.WriteLine("Escriba el nombre de la película");
             var name = Console.ReadLine();
@@ -58,7 +59,7 @@ namespace Recu
             newMovie.Name = name;
             newMovie.Year = int.Parse(year);
 
-            
+            var db = new MoviesDbContext();
             db.Movies.Add(newMovie);
 
             var result = db.SaveChanges();
@@ -72,6 +73,7 @@ namespace Recu
                 
             System.Console.WriteLine("Presione cualquier tecla para salir...");
             Console.ReadLine();
+         
         }
 
     }
@@ -87,10 +89,10 @@ namespace Recu
             optionsBuilder.UseSqlServer(@"Data source=(localdb)\MSSQLLocalDB; Initial Catalog=Movies;Integrated Security=true");
         }
 
-        protected MoviesDbContext()
+        /* protected MoviesDbContext()
         {
             
-        }
+        } */
        
         public DbSet<Movie> Movies {get; set;}
 
